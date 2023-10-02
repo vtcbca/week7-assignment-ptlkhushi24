@@ -1,0 +1,108 @@
+1)Create table 
+stud(id,name) (use I'd as primary key)
+stud_details(id,city,mobileno) (Use I'd as foreign key)
+2)Insert minimum 10 records for each table.
+
+create table stud
+(
+id int primary key,
+name varchar(15)
+);
+insert into stud values(1,'lisha');
+insert into stud values(2,'vidhi');
+insert into stud values(3,'krishna');
+insert into stud values(4,'diya');
+insert into stud values(5,'khushi');
+insert into stud values(6,'aarti');
+insert into stud values(7,'anushka');
+insert into stud values(8,'sneha');
+insert into stud values(9,'prisha');
+insert into stud values(10,'navya');
+
+create table
+stud_detail
+(
+id int references stud(sid),
+city varchar(15),
+mobile_no int
+);
+
+select * from stud;
++----+---------+
+| id |  name   |
++----+---------+
+| 1  | khushi  |
+| 2  | vidhi   |
+| 3  | krisha  |
+| 4  | diya    |
+| 5  | khushi  |
+| 6  | aarti   |
+| 7  | anushk  |
+| 8  | sneha   |
+| 9  | prish   |
+| 10 | navya   |
++----+---------+
+
+(
+id int references stud1,
+city varchar(15),
+mobile_no int
+);
+insert into stud_detail values(1,'pune',9571122475);
+insert into stud_detail values(2,'delhi',9751244751);
+insert into stud_detail values(3,'mumbai',7089155671);
+insert into stud_detail values(4,'udaipur',5547566749);
+insert into stud_detail values(5,'hyderabad',6675675517);
+insert into stud_detail values(6,'bengalura',4756711671);
+insert into stud_detail values(7,'surat',9756122471);
+insert into stud_detail values(8,'bhopal',8875166751);
+insert into stud_detail values(9,'kutch',5547166751);
+insert into stud_detail values(10,'nagpur',6789166715);
+select * from stud_detail;
++----+------------+------------+
+| id |    city    | mobile_no  |
++----+------------+------------+
+| 1  | pune       | 9571122475 |
+| 2  | delhi      | 9751244751 |
+| 3  | mumbai     | 7089155671 |
+| 4  | udaipur    | 5547566749 |
+| 5  | hyderabad  | 6675675517 |
+| 6  | bengalura  | 4756711671 |
+| 7  | surat      | 9756122471 |
+| 8  | bhopal     | 8875166751 |
+| 9  | kutch      | 5547166751 |
+| 10 | nagpur     | 6789166715 |
++----+------------+------------+
+
+3)Display whose student come from the Surat City.
+->select * from stud_detail where city="surat";
+7|surat|9756122471
+
+4)Display student details whose city name start with 'B'.
+->select * from stud_detail where city like "b_%";
++----+----------+------------+
+| id |   city   | mobile_no  |
++----+----------+------------+
+| 6  | bengalura| 4756711671 |
+|    |          |            |
++----+----------+------------+
+
+
+5)Update mobileno who are comming from 'Surat'
+->update stud_detail set mobile_no="9767521181" where city="surat";
+  select * from stud_detail;
++----+------------+------------+
+| id |    city    | mobile_no  |
++----+------------+------------+
+| 1  | pune       | 9571122475 |
+| 2  | delhi      | 9751244751 |
+| 3  | mumbai     | 7089155671 |
+| 4  | udaipur    | 5547566749 |
+| 5  | hyderabad  | 6675675517 |
+| 6  | bengalura  | 4756711671 |
+| 7  | surat      | 9767521181 |
+| 8  | bhopal     | 8875166751 |
+| 9  | kutch      | 5547166751 |
+| 10 | nagpur     | 6789166715 |
++----+------------+------------+
+
